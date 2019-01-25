@@ -54,7 +54,8 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Classes\PlayerController.cs" />
-     <Compile Include="Assets\Walkable.cs" />
+     <Compile Include="Assets\Classes\Walkable.cs" />
+     <Compile Include="Assets\Classes\Web.cs" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>C:/Users/rarot/PoucaTeia/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>

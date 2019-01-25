@@ -34,6 +34,10 @@ public class PlayerController : MonoBehaviour
     public void EndWeb()
     {
         this.web.GetComponent<LineRenderer>().SetPosition(1, this.gameObject.transform.position);
+        if(!makingWeb)
+        {
+            this.web.GetComponent<Web>().AddColliderToLine();
+        }
     }
 
     void Start()
