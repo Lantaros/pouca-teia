@@ -1305,6 +1305,7 @@ MonoBehaviour:
   debugText: {fileID: 764303325}
   speed: 5
   eatenSound: {fileID: 8300000, guid: 05c365dbb207051458241980e32160a6, type: 3}
+  jumpSound: {fileID: 8300000, guid: 2280f159f3a82dd48ab189283b217fe6, type: 3}
   isOnSurface: 1
   webOriginal: {fileID: 591586817725923292, guid: 777ee6f1c9b995b41bc347ec63c6e796,
     type: 3}

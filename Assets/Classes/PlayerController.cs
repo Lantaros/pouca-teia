@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 
     public float speed;
     public AudioClip eatenSound;
+    public AudioClip jumpSound;
 
     [HideInInspector]
     public int isOnSurface = 0;
@@ -88,6 +89,7 @@ public class PlayerController : MonoBehaviour
                 canJump = false;
                 this.animator.SetTrigger("Jump");
                 this.GetComponent<Rigidbody2D>().velocity = this.movement * jump;
+                this.audioSource.PlayOneShot(this.jumpSound);
                 if(!makingWeb)
                 {
                     this.startingWeb = true;
