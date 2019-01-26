@@ -11,6 +11,9 @@ public class GameManager : MonoBehaviour
     [Header("Settings")]
     public int BuildTime;
     public int HuntTime;
+
+    public bool roundStarted = false;
+
     public float[] SpawnTimeLimits;
 
     private UnityEngine.UI.Text timeText;
@@ -27,6 +30,9 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        if(!roundStarted)
+            return;
+            
         this.currentTime -= Time.deltaTime;
         
         if (this.mode == "building")
