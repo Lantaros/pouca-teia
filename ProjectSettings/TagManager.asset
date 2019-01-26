@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Walkable
   - WebButt
+  - Bug
   layers:
   - Default
   - TransparentFX

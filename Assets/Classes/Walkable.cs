@@ -38,6 +38,12 @@ public class Walkable : MonoBehaviour
                 player.EndWeb(other.gameObject.transform.position);
             }
         }
+        else if (other.tag == "Bug")
+        {
+            Bug bug = other.GetComponent<Bug>();
+
+            bug.isOnSurface++;
+        }
     }
 
     void OnTriggerExit2D(Collider2D other)
@@ -73,6 +79,12 @@ public class Walkable : MonoBehaviour
                     player.StartWeb(Position);
                 }
             }
+        }
+        else if (other.tag == "Bug")
+        {
+            Bug bug = other.GetComponent<Bug>();
+
+            bug.isOnSurface--;
         }
     }
 }
