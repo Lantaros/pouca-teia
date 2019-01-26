@@ -73,26 +73,33 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKey("a"))
             {
                 this.movement += new Vector3(-speed * Time.deltaTime, 0.0f, 0.0f);
-                this.isWalking = true;
+                if(this.isOnSurface != 1)
+                    this.isWalking = true;
             }
             if (Input.GetKey("s"))
             {
                 this.movement += new Vector3(0.0f, -speed * Time.deltaTime, 0.0f);
-                this.isWalking = true;
+                if(this.isOnSurface != 1)
+                    this.isWalking = true;
             }
             if (Input.GetKey("d"))
             {
                 this.movement += new Vector3(speed * Time.deltaTime, 0.0f, 0.0f);
-                this.isWalking = true;
+                if(this.isOnSurface != 1)
+                    this.isWalking = true;
             }
             if (Input.GetKey("w"))
             {
                 this.movement += new Vector3(0.0f, speed * Time.deltaTime, 0.0f);
-                this.isWalking = true;
+                if(this.isOnSurface != 1)
+                    this.isWalking = true;
             }
             if (Input.GetKeyDown("space") && canJump)
             {
                 canJump = false;
+                this.isWalking = false;
+                this.animator.ResetTrigger("Idle");
+                this.animator.ResetTrigger("Walk");
                 this.animator.SetTrigger("Jump");
                 this.GetComponent<Rigidbody2D>().velocity = this.movement * jump;
                 this.audioSource.PlayOneShot(this.jumpSound);
