@@ -11,12 +11,17 @@ public class PlayerController : MonoBehaviour
     public int isOnSurface = 0;
 
     public GameObject webOriginal;
+
+    public LayerMask layerMask;
+
     [HideInInspector]
     public GameObject web;
     [SerializeField]
     private float jump;
 
     private Rigidbody2D rb;
+
+    private bool canJump = true;
 
     [HideInInspector]
     public bool startingWeb = false;
@@ -26,9 +31,9 @@ public class PlayerController : MonoBehaviour
     [HideInInspector]
     public Vector3 movement;
     
-    public void StartWeb()
+    public void StartWeb(Vector3 StartPosition)
     {
-        this.web.GetComponent<LineRenderer>().SetPosition(0, this.gameObject.transform.GetChild(0).transform.position);
+        this.web.GetComponent<LineRenderer>().SetPosition(0, StartPosition);
     }
 
     public void EndWeb(Vector3 EndPosition)
@@ -67,14 +72,20 @@ public class PlayerController : MonoBehaviour
             {
                 this.movement += new Vector3(0.0f, speed * Time.deltaTime, 0.0f);
             }
-            if (Input.GetKeyDown("space"))
+            if (Input.GetKeyDown("space") && canJump)
             {
+                canJump = false;
                 //this.GetComponent<PlayerController>().isOnSurface = false;
                 //this.GetComponent<Rigidbody2D>().gravityScale = 1;
                 this.GetComponent<Rigidbody2D>().velocity = this.movement * jump;
-                this.startingWeb = true;
+                if(!makingWeb)
+                {
+                    this.startingWeb = true;
+                }
 
                 this.web = Instantiate(this.webOriginal);
+
+                StartCoroutine("CooldownJump");
             }
 
             this.gameObject.transform.position += this.movement;
@@ -85,7 +96,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             this.GetComponent<Rigidbody2D>().gravityScale = 1;
-            if (Input.GetKey("a"))
+    /*        if (Input.GetKey("a"))
             {
                 this.gameObject.transform.position += new Vector3(-speed * Time.deltaTime, 0.0f, 0.0f);
             }
@@ -93,11 +104,20 @@ public class PlayerController : MonoBehaviour
             {
                 this.gameObject.transform.position += new Vector3(speed * Time.deltaTime, 0.0f, 0.0f);
             }
+            */
         }
 
         if (this.makingWeb)
         {
             this.EndWeb(this.gameObject.transform.GetChild(0).transform.position);
         }
+    }
+
+    IEnumerator CooldownJump()
+    {
+        // suspend execution for 5 seconds
+        yield return new WaitForSeconds(0.5f);
+        canJump = true;
+        print("Cooldown");
     }
 }

@@ -18,6 +18,8 @@ public class Web : MonoBehaviour
 
     public void AddColliderToLine()
     {
+        this.gameObject.layer = 8;
+
         LineRenderer line = this.GetComponent<LineRenderer>();
 
         //create the collider for the line

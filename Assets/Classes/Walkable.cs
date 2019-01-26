@@ -49,20 +49,29 @@ public class Walkable : MonoBehaviour
 
             player.isOnSurface--;
 
+            
+
             Debug.Log("Is on surface: " + player.isOnSurface);
         }
         else if (other.tag == "WebButt")
         {
             PlayerController player = other.gameObject.transform.parent.GetComponent<PlayerController>();
 
-            if (player.isOnSurface == 1
-            && player.startingWeb)
+            if (player.startingWeb)
             {
                 Debug.Log("Starting web.");
                 player.startingWeb = false;
                 player.makingWeb = true;
-                player.StartWeb();
                 other.gameObject.transform.parent.GetComponent<Rigidbody2D>().gravityScale = 1;
+
+                RaycastHit2D hit = Physics2D.Raycast(other.gameObject.transform.position, -other.gameObject.transform.parent.transform.up, 1000, player.layerMask);
+
+                // If it hits something...
+                if (hit.collider != null)
+                {
+                    Vector3 Position = new Vector3(hit.point.x, hit.point.y, 1);
+                    player.StartWeb(Position);
+                }
             }
         }
     }
