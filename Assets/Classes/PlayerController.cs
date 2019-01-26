@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D rb;
     private AudioSource audioSource;
+    private Animator animator;
 
     private bool canJump = true;
 
@@ -56,6 +57,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         this.audioSource = this.GetComponent<AudioSource>();
+        this.animator = this.GetComponent<Animator>();
     }
     
     void Update()
@@ -84,15 +86,14 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKeyDown("space") && canJump)
             {
                 canJump = false;
-                //this.GetComponent<PlayerController>().isOnSurface = false;
-                //this.GetComponent<Rigidbody2D>().gravityScale = 1;
+                this.animator.SetTrigger("Jump");
                 this.GetComponent<Rigidbody2D>().velocity = this.movement * jump;
                 if(!makingWeb)
                 {
                     this.startingWeb = true;
+                    this.web = Instantiate(this.webOriginal);
                 }
 
-                this.web = Instantiate(this.webOriginal);
 
                 StartCoroutine("CooldownJump");
             }
