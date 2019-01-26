@@ -18,44 +18,52 @@ public class Walkable : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag != "Player")
+        if (other.tag == "Player")
         {
-            return;
-        }
+            PlayerController player = other.GetComponent<PlayerController>();
 
-        if (other.GetComponent<PlayerController>().makingWeb)
+            player.isOnSurface++;
+
+            Debug.Log("Is on surface: " + player.isOnSurface);
+            other.GetComponent<Rigidbody2D>().gravityScale = 0;
+            other.GetComponent<Rigidbody2D>().velocity = new Vector2(0.0f, 0.0f);
+        }
+        else if (other.tag == "WebButt")
         {
-            other.GetComponent<PlayerController>().makingWeb = false;
-            other.GetComponent<PlayerController>().EndWeb(other.gameObject.transform.GetChild(1).transform.position);
-        }
+            PlayerController player = other.gameObject.transform.parent.GetComponent<PlayerController>();
 
-        other.GetComponent<PlayerController>().isOnSurface++;
-        
-        Debug.Log("Is on surface: " + other.GetComponent<PlayerController>().isOnSurface);
-        other.GetComponent<Rigidbody2D>().gravityScale = 0;
-        other.GetComponent<Rigidbody2D>().velocity = new Vector2(0.0f, 0.0f);
+            if (player.makingWeb)
+            {
+                player.makingWeb = false;
+                player.EndWeb(other.gameObject.transform.position);
+            }
+        }
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.tag != "Player")
+
+        if (other.tag == "Player")
         {
-            return;
+            PlayerController player = other.GetComponent<PlayerController>();
+
+            player.isOnSurface--;
+
+            Debug.Log("Is on surface: " + player.isOnSurface);
         }
-
-        other.GetComponent<PlayerController>().isOnSurface--;
-
-        Debug.Log("Is on surface: " + other.GetComponent<PlayerController>().isOnSurface);
-
-        if(other.GetComponent<PlayerController>().isOnSurface == 1
-            && other.GetComponent<PlayerController>().startingWeb)
+        else if (other.tag == "WebButt")
         {
-            Debug.Log("Starting web.");
-            other.GetComponent<PlayerController>().startingWeb = false;
-            other.GetComponent<PlayerController>().makingWeb = true;
-            other.GetComponent<PlayerController>().StartWeb();
-            other.GetComponent<Rigidbody2D>().gravityScale = 1;
-        }
+            PlayerController player = other.gameObject.transform.parent.GetComponent<PlayerController>();
 
+            if (player.isOnSurface == 1
+            && player.startingWeb)
+            {
+                Debug.Log("Starting web.");
+                player.startingWeb = false;
+                player.makingWeb = true;
+                player.StartWeb();
+                other.gameObject.transform.parent.GetComponent<Rigidbody2D>().gravityScale = 1;
+            }
+        }
     }
 }
