@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     private AudioSource audioSource;
     private Animator animator;
 
+    private bool isWalking = false;
     private bool canJump = true;
 
     [HideInInspector]
@@ -67,22 +68,27 @@ public class PlayerController : MonoBehaviour
 
         if (this.isOnSurface > 1)
         {
+            this.isWalking = false;
             this.movement = new Vector3(0.0f, 0.0f, 0.0f);
             if (Input.GetKey("a"))
             {
                 this.movement += new Vector3(-speed * Time.deltaTime, 0.0f, 0.0f);
+                this.isWalking = true;
             }
             if (Input.GetKey("s"))
             {
                 this.movement += new Vector3(0.0f, -speed * Time.deltaTime, 0.0f);
+                this.isWalking = true;
             }
             if (Input.GetKey("d"))
             {
                 this.movement += new Vector3(speed * Time.deltaTime, 0.0f, 0.0f);
+                this.isWalking = true;
             }
             if (Input.GetKey("w"))
             {
                 this.movement += new Vector3(0.0f, speed * Time.deltaTime, 0.0f);
+                this.isWalking = true;
             }
             if (Input.GetKeyDown("space") && canJump)
             {
@@ -98,6 +104,17 @@ public class PlayerController : MonoBehaviour
 
 
                 StartCoroutine("CooldownJump");
+            }
+
+            if (this.isWalking)
+            {
+                this.animator.ResetTrigger("Idle");
+                this.animator.SetTrigger("Walk");
+            }
+            else
+            {
+                this.animator.ResetTrigger("Walk");
+                this.animator.SetTrigger("Idle");
             }
 
             this.gameObject.transform.position += this.movement;
