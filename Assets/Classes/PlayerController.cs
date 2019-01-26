@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
     public UnityEngine.UI.Text debugText;
 
     public float speed;
+    public AudioClip eatenSound;
+
     [HideInInspector]
     public int isOnSurface = 0;
 
@@ -20,6 +22,7 @@ public class PlayerController : MonoBehaviour
     private float jump;
 
     private Rigidbody2D rb;
+    private AudioSource audioSource;
 
     private bool canJump = true;
 
@@ -45,8 +48,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void Eat()
+    {
+        this.audioSource.PlayOneShot(eatenSound);
+    }
+
     void Start()
     {
+        this.audioSource = this.GetComponent<AudioSource>();
     }
     
     void Update()

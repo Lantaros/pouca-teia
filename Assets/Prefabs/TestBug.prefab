@@ -106,6 +106,7 @@ MonoBehaviour:
   - 7
   - 14
   isOnSurface: 0
+  eatenSound: {fileID: 8300000, guid: 2621abaf5ef1c0c4bbdd3e58ba5163fd, type: 3}
 --- !u!61 &5836949155235858520
 BoxCollider2D:
   m_ObjectHideFlags: 0
