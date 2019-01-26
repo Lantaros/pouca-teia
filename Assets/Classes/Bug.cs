@@ -34,21 +34,24 @@ public class Bug : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.transform.position += 
-            Vector3.Normalize(new Vector3(destinationX - spawnX, destinationY - spawnY, 0.0f))
-            * speed 
-            * Time.deltaTime;
+        if (this.mode != "caught")
+        {
+            this.transform.position += 
+                Vector3.Normalize(new Vector3(destinationX - spawnX, destinationY - spawnY, 0.0f))
+                * speed 
+                * Time.deltaTime;
+        }
 
         if (this.transform.position.x >= this.passX && this.mode == "flying")
         {
             if (this.isOnSurface == 1)
             {
-                this.mode = "free";
+                this.mode = "caught";
                 this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, -1);
             }
             else
             {
-                this.mode = "caught";
+                this.mode = "free";
             }
         }
     }

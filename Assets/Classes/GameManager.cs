@@ -48,7 +48,6 @@ public class GameManager : MonoBehaviour
             else if (this.mode == "hunting")
             {
                 this.mode = "showingResults";
-                this.currentTime = this.BuildTime;
             }
         }
     }
