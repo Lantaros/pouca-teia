@@ -28,12 +28,12 @@ public class PlayerController : MonoBehaviour
     
     public void StartWeb()
     {
-        this.web.GetComponent<LineRenderer>().SetPosition(0, this.gameObject.transform.position);
+        this.web.GetComponent<LineRenderer>().SetPosition(0, this.gameObject.transform.GetChild(0).transform.position);
     }
 
-    public void EndWeb()
+    public void EndWeb(Vector3 EndPosition)
     {
-        this.web.GetComponent<LineRenderer>().SetPosition(1, this.gameObject.transform.position);
+        this.web.GetComponent<LineRenderer>().SetPosition(1, EndPosition);
         if(!makingWeb)
         {
             this.web.GetComponent<Web>().AddColliderToLine();
@@ -79,6 +79,8 @@ public class PlayerController : MonoBehaviour
 
             this.gameObject.transform.position += this.movement;
 
+            this.gameObject.transform.up = this.movement;
+
         }
         else
         {
@@ -95,7 +97,7 @@ public class PlayerController : MonoBehaviour
 
         if (this.makingWeb)
         {
-            this.EndWeb();
+            this.EndWeb(this.gameObject.transform.GetChild(0).transform.position);
         }
     }
 }

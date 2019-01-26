@@ -26,7 +26,7 @@ public class Walkable : MonoBehaviour
         if (other.GetComponent<PlayerController>().makingWeb)
         {
             other.GetComponent<PlayerController>().makingWeb = false;
-            other.GetComponent<PlayerController>().EndWeb();
+            other.GetComponent<PlayerController>().EndWeb(other.gameObject.transform.GetChild(1).transform.position);
         }
 
         other.GetComponent<PlayerController>().isOnSurface++;
