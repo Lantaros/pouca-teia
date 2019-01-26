@@ -118,6 +118,5 @@ public class PlayerController : MonoBehaviour
         // suspend execution for 5 seconds
         yield return new WaitForSeconds(0.5f);
         canJump = true;
-        print("Cooldown");
     }
 }

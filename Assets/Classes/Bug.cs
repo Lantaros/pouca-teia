@@ -55,4 +55,11 @@ public class Bug : MonoBehaviour
             }
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Player" && this.mode == "caught") {
+            Destroy(this.gameObject);
+        }
+    }
 }

@@ -24,7 +24,6 @@ public class Walkable : MonoBehaviour
 
             player.isOnSurface++;
 
-            Debug.Log("Is on surface: " + player.isOnSurface);
             other.GetComponent<Rigidbody2D>().gravityScale = 0;
             other.GetComponent<Rigidbody2D>().velocity = new Vector2(0.0f, 0.0f);
         }
@@ -43,6 +42,7 @@ public class Walkable : MonoBehaviour
             Bug bug = other.GetComponent<Bug>();
 
             bug.isOnSurface++;
+            Debug.Log("Bug is on surface: " + bug.isOnSurface);
         }
     }
 
@@ -54,10 +54,6 @@ public class Walkable : MonoBehaviour
             PlayerController player = other.GetComponent<PlayerController>();
 
             player.isOnSurface--;
-
-            
-
-            Debug.Log("Is on surface: " + player.isOnSurface);
         }
         else if (other.tag == "WebButt")
         {
@@ -65,7 +61,6 @@ public class Walkable : MonoBehaviour
 
             if (player.startingWeb)
             {
-                Debug.Log("Starting web.");
                 player.startingWeb = false;
                 player.makingWeb = true;
                 other.gameObject.transform.parent.GetComponent<Rigidbody2D>().gravityScale = 1;
