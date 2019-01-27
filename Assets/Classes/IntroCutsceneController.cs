@@ -44,7 +44,7 @@ public class IntroCutsceneController : MonoBehaviour
         this.Text3.SetActive(true);
         this.Text3.GetComponent<RollingTextFade>().Begin();
 
-        yield return new WaitForSeconds(6.0f);
+        yield return new WaitForSeconds(8.0f);
         SceneManager.LoadScene(1);
         yield return null;
         StopCoroutine(BeginIntro());

@@ -1,5 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 using UnityEngine;
 
 public class ScoreUIBehaviour : MonoBehaviour
@@ -25,8 +28,14 @@ public class ScoreUIBehaviour : MonoBehaviour
     {
         if (this.ready)
         {
+            this.GetComponent<Image>().enabled = true;
             this.UIText.text = this.points + " bugs";
             this.transform.position += (this.reference.transform.position - this.transform.position) / 10.0f;
+
+            if (Input.GetButton("Play"))
+            {
+                SceneManager.LoadScene(1);
+            }
         }
     }
 }
