@@ -34,7 +34,8 @@ public class Walkable : MonoBehaviour
             if (player.makingWeb)
             {
                 player.makingWeb = false;
-                player.EndWeb(other.gameObject.transform.position);
+                Vector3 Position = new Vector3(other.gameObject.transform.position.x, other.gameObject.transform.position.y, 1);
+                player.EndWeb(Position);
             }
         }
         else if (other.tag == "Bug")
