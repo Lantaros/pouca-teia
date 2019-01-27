@@ -110,6 +110,7 @@ MonoBehaviour:
   - 14
   isOnSurface: 0
   caughtSound: {fileID: 8300000, guid: f4f483b88fe45ec4da6ac0dc62cdc639, type: 3}
+  score: {fileID: 0}
 --- !u!61 &5836949155235858520
 BoxCollider2D:
   m_ObjectHideFlags: 0

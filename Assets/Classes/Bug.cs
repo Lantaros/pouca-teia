@@ -13,6 +13,11 @@ public class Bug : MonoBehaviour
     [HideInInspector]
     public int isOnSurface;
     public AudioClip caughtSound;
+    public GameObject score;
+    [HideInInspector]
+    public static int bugNumber = 0;
+    [HideInInspector]
+    public static int points = 0;
 
     private float spawnY;
     private float destinationY;
@@ -33,6 +38,8 @@ public class Bug : MonoBehaviour
 
         this.audioSource = this.GetComponent<AudioSource>();
         this.animator = this.GetComponent<Animator>();
+
+        bugNumber++;
     }
 
     // Update is called once per frame
@@ -60,6 +67,18 @@ public class Bug : MonoBehaviour
                 this.mode = "free";
             }
         }
+
+        if (this.transform.position.x >= this.destinationX)
+        {
+            Destroy(this.gameObject);
+            bugNumber--;
+
+            if (bugNumber == 0)
+            {
+                this.score.GetComponent<ScoreUIBehaviour>().ready = true;
+                this.score.GetComponent<ScoreUIBehaviour>().points = points;
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -67,6 +86,14 @@ public class Bug : MonoBehaviour
         if (other.tag == "Player" && this.mode == "caught") {
             other.GetComponent<PlayerController>().Eat();
             Destroy(this.gameObject);
+            bugNumber--;
+            points++;
+
+            if (bugNumber == 0)
+            {
+                this.score.GetComponent<ScoreUIBehaviour>().ready = true;
+                this.score.GetComponent<ScoreUIBehaviour>().points = points;
+            }
         }
     }
 }

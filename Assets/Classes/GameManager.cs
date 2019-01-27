@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
 
     public float[] SpawnTimeLimits;
 
+    public GameObject score;
+
     private UnityEngine.UI.Text timeText;
     private float currentTime;
     private float spawnTime = 0.0f;
@@ -67,7 +69,8 @@ public class GameManager : MonoBehaviour
             this.spawnTime = 0.0f;
 
             int bug = Random.Range(0, 3);
-            Instantiate(this.bugs[bug]);
+            GameObject spawnedBug = (GameObject)Instantiate(this.bugs[bug]);
+            spawnedBug.GetComponent<Bug>().score = this.score;
         }
     }
 }
