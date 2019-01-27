@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public UnityEngine.UI.Text debugText;
-
     public float speed;
     public AudioClip eatenSound;
     public AudioClip jumpSound;
@@ -68,8 +66,6 @@ public class PlayerController : MonoBehaviour
     
     void Update()
     {
-        debugText.text = this.isOnSurface.ToString();
-
         if (this.isOnSurface > 1)
         {
             this.isWalking = false;
