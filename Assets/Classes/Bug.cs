@@ -10,6 +10,7 @@ public class Bug : MonoBehaviour
     public float destinationX;
     public float[] destinationYLimits;
     public float[] speedLimits;
+    [HideInInspector]
     public int isOnSurface;
     public AudioClip caughtSound;
 
