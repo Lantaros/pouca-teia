@@ -36,6 +36,9 @@ public class PlayerController : MonoBehaviour
 
     [HideInInspector]
     public Vector3 movement;
+
+    [HideInInspector]
+    public int points = 0;
     
     public void StartWeb(Vector3 StartPosition)
     {
@@ -54,6 +57,7 @@ public class PlayerController : MonoBehaviour
     public void Eat()
     {
         this.audioSource.PlayOneShot(eatenSound);
+        this.points++;
     }
 
     void Start()
