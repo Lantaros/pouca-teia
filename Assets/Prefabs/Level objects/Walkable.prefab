@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2730223452548396877}
   - component: {fileID: 2730223452548396874}
   - component: {fileID: 2730223452548396878}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Walkable
   m_TagString: Walkable
   m_Icon: {fileID: 0}

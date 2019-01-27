@@ -38,7 +38,7 @@ public class Walkable : MonoBehaviour
                 player.EndWeb(Position);
             }
         }
-        else if (other.tag == "Bug")
+        else if (other.tag == "Bug" && this.gameObject.layer == 8)
         {
             Bug bug = other.GetComponent<Bug>();
 

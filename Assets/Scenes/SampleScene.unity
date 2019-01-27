@@ -781,7 +781,7 @@ MonoBehaviour:
     type: 3}
   layerMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 768
   web: {fileID: 0}
   jump: 150
   startingWeb: 0
