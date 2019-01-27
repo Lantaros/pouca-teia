@@ -228,6 +228,7 @@ MonoBehaviour:
   - {fileID: 6209009123699437406, guid: 93fd61ed426c8534d914e7b368f1c72c, type: 3}
   BuildTime: 60
   HuntTime: 10
+  roundStarted: 1
   SpawnTimeLimits:
   - 0.1
   - 0.5
