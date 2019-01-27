@@ -28,7 +28,7 @@ public class Bug : MonoBehaviour
         this.gameObject.transform.position = new Vector3(spawnX, spawnY, 0.0f);
         this.destinationY = Random.Range(destinationYLimits[0], destinationYLimits[1]);
         this.speed = Random.Range(speedLimits[0], speedLimits[1]);
-        this.passX = Random.Range(spawnX, destinationX);
+        this.passX = Random.Range(spawnX + 5, destinationX - 5);
 
         this.audioSource = this.GetComponent<AudioSource>();
         this.animator = this.GetComponent<Animator>();

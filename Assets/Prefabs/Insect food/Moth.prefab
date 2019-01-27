@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 6209009123699437406}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -11.08, y: -0.07, z: 0}
-  m_LocalScale: {x: 0.05, y: 0.05, z: 1}
+  m_LocalScale: {x: 0.055, y: 0.055, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -99,12 +99,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnX: -12
   spawnYLimits:
-  - -5
-  - 5
+  - -4
+  - 4
   destinationX: 12
   destinationYLimits:
-  - -5
-  - 5
+  - -4
+  - 4
   speedLimits:
   - 7
   - 14
