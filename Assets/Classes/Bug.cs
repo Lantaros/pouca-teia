@@ -19,6 +19,7 @@ public class Bug : MonoBehaviour
     private float passX;
     private string mode = "flying"; //possible values: flying, free and caught
     private AudioSource audioSource;
+    private Animator animator;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +31,7 @@ public class Bug : MonoBehaviour
         this.passX = Random.Range(spawnX, destinationX);
 
         this.audioSource = this.GetComponent<AudioSource>();
+        this.animator = this.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -49,6 +51,7 @@ public class Bug : MonoBehaviour
             {
                 this.mode = "caught";
                 this.audioSource.PlayOneShot(this.caughtSound);
+                this.animator.SetTrigger("Caught");
                 this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, -1);
             }
             else

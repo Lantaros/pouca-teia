@@ -66,7 +66,8 @@ public class GameManager : MonoBehaviour
             this.spawnTimeTarget = Random.Range(this.SpawnTimeLimits[0], this.SpawnTimeLimits[1]);
             this.spawnTime = 0.0f;
 
-            Instantiate(this.bugs[0]);
+            int bug = Random.Range(0, 3);
+            Instantiate(this.bugs[bug]);
         }
     }
 }

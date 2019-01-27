@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Fly Death
+  m_Name: Moth Death
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,13 +20,11 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: d21fb92e28af22b4590e65bb7d7ccc50, type: 3}
+      value: {fileID: 21300000, guid: 23330c3489cc03e48b07ab8f6f605026, type: 3}
     - time: 0.083333336
-      value: {fileID: 21300000, guid: bb16987bb0f12ed46bffc4eea0e208e0, type: 3}
+      value: {fileID: 21300000, guid: c5347b7597b14604eab9ab740391f625, type: 3}
     - time: 0.16666667
-      value: {fileID: 21300000, guid: 9fe6bf71539b1134b9ec222125875e40, type: 3}
-    - time: 0.25
-      value: {fileID: 21300000, guid: c50b4d8b69059c045be2740cd059e908, type: 3}
+      value: {fileID: 21300000, guid: 0217dc829926cf74ab25a64901ec8630, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -46,16 +44,15 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: d21fb92e28af22b4590e65bb7d7ccc50, type: 3}
-    - {fileID: 21300000, guid: bb16987bb0f12ed46bffc4eea0e208e0, type: 3}
-    - {fileID: 21300000, guid: 9fe6bf71539b1134b9ec222125875e40, type: 3}
-    - {fileID: 21300000, guid: c50b4d8b69059c045be2740cd059e908, type: 3}
+    - {fileID: 21300000, guid: 23330c3489cc03e48b07ab8f6f605026, type: 3}
+    - {fileID: 21300000, guid: c5347b7597b14604eab9ab740391f625, type: 3}
+    - {fileID: 21300000, guid: 0217dc829926cf74ab25a64901ec8630, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.33333334
+    m_StopTime: 0.25
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

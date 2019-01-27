@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Fly Death
+  m_Name: Fly Help
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,18 +20,14 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: d21fb92e28af22b4590e65bb7d7ccc50, type: 3}
-    - time: 0.083333336
-      value: {fileID: 21300000, guid: bb16987bb0f12ed46bffc4eea0e208e0, type: 3}
-    - time: 0.16666667
       value: {fileID: 21300000, guid: 9fe6bf71539b1134b9ec222125875e40, type: 3}
-    - time: 0.25
+    - time: 0.16666667
       value: {fileID: 21300000, guid: c50b4d8b69059c045be2740cd059e908, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 12
+  m_SampleRate: 6
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -46,8 +42,6 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: d21fb92e28af22b4590e65bb7d7ccc50, type: 3}
-    - {fileID: 21300000, guid: bb16987bb0f12ed46bffc4eea0e208e0, type: 3}
     - {fileID: 21300000, guid: 9fe6bf71539b1134b9ec222125875e40, type: 3}
     - {fileID: 21300000, guid: c50b4d8b69059c045be2740cd059e908, type: 3}
   m_AnimationClipSettings:
@@ -60,7 +54,7 @@ AnimationClip:
     m_Level: 0
     m_CycleOffset: 0
     m_HasAdditiveReferencePose: 0
-    m_LoopTime: 0
+    m_LoopTime: 1
     m_LoopBlend: 0
     m_LoopBlendOrientation: 0
     m_LoopBlendPositionY: 0
@@ -74,4 +68,11 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0
+    functionName: 
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

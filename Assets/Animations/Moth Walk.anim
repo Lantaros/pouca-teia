@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Fly Death
+  m_Name: Moth Walk
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,13 +20,13 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: d21fb92e28af22b4590e65bb7d7ccc50, type: 3}
+      value: {fileID: 21300000, guid: a4a4f25fe8aef8c42adefaf28330a217, type: 3}
     - time: 0.083333336
-      value: {fileID: 21300000, guid: bb16987bb0f12ed46bffc4eea0e208e0, type: 3}
+      value: {fileID: 21300000, guid: bcdd14ba1a90671459fe376c1d26e53e, type: 3}
     - time: 0.16666667
-      value: {fileID: 21300000, guid: 9fe6bf71539b1134b9ec222125875e40, type: 3}
+      value: {fileID: 21300000, guid: b277856df22b51b44b71b54648f6f281, type: 3}
     - time: 0.25
-      value: {fileID: 21300000, guid: c50b4d8b69059c045be2740cd059e908, type: 3}
+      value: {fileID: 21300000, guid: cca941d34de3cc24e8e0be740c7ae06a, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -46,10 +46,10 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: d21fb92e28af22b4590e65bb7d7ccc50, type: 3}
-    - {fileID: 21300000, guid: bb16987bb0f12ed46bffc4eea0e208e0, type: 3}
-    - {fileID: 21300000, guid: 9fe6bf71539b1134b9ec222125875e40, type: 3}
-    - {fileID: 21300000, guid: c50b4d8b69059c045be2740cd059e908, type: 3}
+    - {fileID: 21300000, guid: a4a4f25fe8aef8c42adefaf28330a217, type: 3}
+    - {fileID: 21300000, guid: bcdd14ba1a90671459fe376c1d26e53e, type: 3}
+    - {fileID: 21300000, guid: b277856df22b51b44b71b54648f6f281, type: 3}
+    - {fileID: 21300000, guid: cca941d34de3cc24e8e0be740c7ae06a, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
@@ -60,7 +60,7 @@ AnimationClip:
     m_Level: 0
     m_CycleOffset: 0
     m_HasAdditiveReferencePose: 0
-    m_LoopTime: 0
+    m_LoopTime: 1
     m_LoopBlend: 0
     m_LoopBlendOrientation: 0
     m_LoopBlendPositionY: 0
