@@ -70,31 +70,36 @@ public class PlayerController : MonoBehaviour
         {
             this.isWalking = false;
             this.movement = new Vector3(0.0f, 0.0f, 0.0f);
-            if (Input.GetKey("a"))
+
+            float horiInput = Input.GetAxis("Horizontal");
+            float vertInput = Input.GetAxis("Vertical");
+
+
+            if (horiInput < 0)
             {
-                this.movement += new Vector3(-speed * Time.deltaTime, 0.0f, 0.0f);
+                this.movement += new Vector3(horiInput * speed * Time.deltaTime, 0.0f, 0.0f);
                 if(this.isOnSurface != 1)
                     this.isWalking = true;
             }
-            if (Input.GetKey("s"))
+            if (vertInput < 0)
             {
-                this.movement += new Vector3(0.0f, -speed * Time.deltaTime, 0.0f);
+                this.movement += new Vector3(0.0f, vertInput * speed * Time.deltaTime, 0.0f);
                 if(this.isOnSurface != 1)
                     this.isWalking = true;
             }
-            if (Input.GetKey("d"))
+            if (horiInput > 0)
             {
-                this.movement += new Vector3(speed * Time.deltaTime, 0.0f, 0.0f);
+                this.movement += new Vector3(horiInput * speed * Time.deltaTime, 0.0f, 0.0f);
                 if(this.isOnSurface != 1)
                     this.isWalking = true;
             }
-            if (Input.GetKey("w"))
+            if (vertInput > 0)
             {
-                this.movement += new Vector3(0.0f, speed * Time.deltaTime, 0.0f);
+                this.movement += new Vector3(0.0f, vertInput * speed * Time.deltaTime, 0.0f);
                 if(this.isOnSurface != 1)
                     this.isWalking = true;
             }
-            if (Input.GetKeyDown("space") && canJump)
+            if ((Input.GetKeyDown("space") || Input.GetKeyDown("joystick button 0")) && canJump)
             {
                 canJump = false;
                 this.isWalking = false;
