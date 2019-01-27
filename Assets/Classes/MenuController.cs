@@ -4,22 +4,24 @@ using UnityEngine;
 
 public class MenuController : MonoBehaviour
 {
+    public GameManager gameManager;
+
+    public GameObject MainMenuPanel;
+    public GameObject HelpMenuPanel;
+
+    private enum MenuState {MAIN, HELP, NONE};
+    private MenuState currentState;
+    
     // Start is called before the first frame update
     void Start()
     {
-        string[] names = Input.GetJoystickNames();
-
-        print("Joy length " + names.Length);
-
-
-        foreach(string name in names){
-            print(name);
-        }
+        currentState = MenuState.MAIN;
     }
 
-    public void startRound(GameManager gameManager)
+    public void startRound()
     {
         gameManager.roundStarted = true;
+        currentState = MenuState.NONE;
         GameObject obj =  GameObject.Find("MenuCanvas");
 
         if (obj != null){
@@ -30,6 +32,32 @@ public class MenuController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        switch(currentState)
+        {
+            case MenuState.MAIN:
+                if(Input.GetButton("Play"))
+                {
+                    startRound();
+                }
+                else if(Input.GetButton("Help"))
+                {
+                    currentState = MenuState.HELP;
+                    MainMenuPanel.SetActive(false);
+                    HelpMenuPanel.SetActive(true);
+                }
+                break;
+            case MenuState.HELP:
+                if(Input.GetButton("Back"))
+                {
+                    currentState = MenuState.MAIN;
+                    MainMenuPanel.SetActive(true);
+                    HelpMenuPanel.SetActive(false);
+                }
+                break;
+            default:
+                break;
+        }
+
+
     }
 }

@@ -36,7 +36,8 @@ public class PlayerController : MonoBehaviour
 
     [HideInInspector]
     public Vector3 movement;
-    
+    public GameManager gameManager;
+
     public void StartWeb(Vector3 StartPosition)
     {
         this.web.GetComponent<LineRenderer>().SetPosition(0, StartPosition);
@@ -64,6 +65,9 @@ public class PlayerController : MonoBehaviour
     
     void Update()
     {
+        if(!gameManager.roundStarted)
+            return;
+
         debugText.text = this.isOnSurface.ToString();
 
         if (this.isOnSurface > 1)
@@ -99,7 +103,7 @@ public class PlayerController : MonoBehaviour
                 if(this.isOnSurface != 1)
                     this.isWalking = true;
             }
-            if ((Input.GetKeyDown("space") || Input.GetKeyDown("joystick button 0")) && canJump)
+            if (Input.GetButton("Jump") && canJump)
             {
                 canJump = false;
                 this.isWalking = false;

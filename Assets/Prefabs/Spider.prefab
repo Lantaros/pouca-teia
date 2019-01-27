@@ -113,6 +113,7 @@ MonoBehaviour:
   startingWeb: 0
   makingWeb: 0
   movement: {x: 0, y: 0, z: 0}
+  gameManager: {fileID: 0}
 --- !u!50 &606809438079372131
 Rigidbody2D:
   serializedVersion: 4
