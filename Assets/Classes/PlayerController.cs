@@ -71,8 +71,8 @@ public class PlayerController : MonoBehaviour
             this.isWalking = false;
             this.movement = new Vector3(0.0f, 0.0f, 0.0f);
 
-            float horiInput = Input.GetAxis("Horizontal");
-            float vertInput = Input.GetAxis("Vertical");
+            float horiInput = Input.GetAxisRaw("Horizontal");
+            float vertInput = Input.GetAxisRaw("Vertical");
 
 
             if (horiInput < 0)
