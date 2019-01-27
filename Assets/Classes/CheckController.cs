@@ -12,12 +12,9 @@ public class CheckController : MonoBehaviour
     public GameObject controllerSprite;
 
 
-    private Image imageObj;
-
     // Start is called before the first frame update
     void Start()
     {
-        imageObj = this.GetComponent<Image>();
     }
 
     // Update is called once per frame

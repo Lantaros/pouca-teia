@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public UnityEngine.UI.Text debugText;
-
     public float speed;
     public AudioClip eatenSound;
     public AudioClip jumpSound;
@@ -38,6 +36,10 @@ public class PlayerController : MonoBehaviour
     public Vector3 movement;
     public GameManager gameManager;
 
+
+    [HideInInspector]
+    public int points = 0;
+    
     public void StartWeb(Vector3 StartPosition)
     {
         this.web.GetComponent<LineRenderer>().SetPosition(0, StartPosition);
@@ -55,6 +57,7 @@ public class PlayerController : MonoBehaviour
     public void Eat()
     {
         this.audioSource.PlayOneShot(eatenSound);
+        this.points++;
     }
 
     void Start()
@@ -68,15 +71,14 @@ public class PlayerController : MonoBehaviour
         if(!gameManager.roundStarted)
             return;
 
-        debugText.text = this.isOnSurface.ToString();
 
         if (this.isOnSurface > 1)
         {
             this.isWalking = false;
             this.movement = new Vector3(0.0f, 0.0f, 0.0f);
 
-            float horiInput = Input.GetAxis("Horizontal");
-            float vertInput = Input.GetAxis("Vertical");
+            float horiInput = Input.GetAxisRaw("Horizontal");
+            float vertInput = Input.GetAxisRaw("Vertical");
 
 
             if (horiInput < 0)

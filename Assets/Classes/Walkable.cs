@@ -43,7 +43,6 @@ public class Walkable : MonoBehaviour
             Bug bug = other.GetComponent<Bug>();
 
             bug.isOnSurface++;
-            Debug.Log("Bug is on surface: " + bug.isOnSurface);
         }
     }
 

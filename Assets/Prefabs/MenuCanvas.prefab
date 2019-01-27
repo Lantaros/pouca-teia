@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1065696671}
   - component: {fileID: 1065696675}
   - component: {fileID: 1065696674}
-  - component: {fileID: 1065696673}
   - component: {fileID: 1065696672}
   m_Layer: 5
   m_Name: HelpPanel
@@ -19,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1065696671
 RectTransform:
   m_ObjectHideFlags: 0
@@ -76,21 +75,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &1065696673
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1065696670}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4722314db0c2734581c51c1a154c342, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameManager: {fileID: 0}
-  MainMenuPanel: {fileID: 0}
-  HelpMenuPanel: {fileID: 0}
 --- !u!95 &1065696672
 Animator:
   serializedVersion: 3
@@ -269,7 +253,6 @@ GameObject:
   - component: {fileID: 1010944305434457370}
   - component: {fileID: 1010944305434457369}
   - component: {fileID: 1010944305434457368}
-  - component: {fileID: 1010944305434457371}
   - component: {fileID: 1010944305434457374}
   m_Layer: 5
   m_Name: MainPanel
@@ -277,7 +260,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1010944305434457370
 RectTransform:
   m_ObjectHideFlags: 0
@@ -342,21 +325,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &1010944305434457371
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1010944305434457365}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4722314db0c2734581c51c1a154c342, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameManager: {fileID: 0}
-  MainMenuPanel: {fileID: 0}
-  HelpMenuPanel: {fileID: 0}
 --- !u!95 &1010944305434457374
 Animator:
   serializedVersion: 3
@@ -419,8 +387,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b271f8eac098a04ba2c8b68a8531974, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyboardSprite: {fileID: 0}
-  controllerSprite: {fileID: 0}
+  keyboardSprite: {fileID: 1010944304313099962}
+  controllerSprite: {fileID: 1010944305159021941}
 --- !u!1 &1010944305596246211
 GameObject:
   m_ObjectHideFlags: 0
@@ -701,6 +669,7 @@ GameObject:
   - component: {fileID: 1010944305938844100}
   - component: {fileID: 1010944305938844103}
   - component: {fileID: 1010944305938844107}
+  - component: {fileID: 327231087}
   m_Layer: 5
   m_Name: MenuCanvas
   m_TagString: Untagged
@@ -742,7 +711,7 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 0}
-  m_PlaneDistance: 80
+  m_PlaneDistance: 8.68
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -810,6 +779,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &327231087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010944305938844102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4722314db0c2734581c51c1a154c342, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
+  MainMenuPanel: {fileID: 1010944305434457365}
+  HelpMenuPanel: {fileID: 1065696670}
 --- !u!1 &1010944306042227044
 GameObject:
   m_ObjectHideFlags: 0
@@ -954,7 +938,7 @@ PrefabInstance:
     - target: {fileID: 606809438079372128, guid: 91952070db0d6354e83e308242475eae,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -162.58995
+      value: -33
       objectReference: {fileID: 0}
     - target: {fileID: 606809438079372128, guid: 91952070db0d6354e83e308242475eae,
         type: 3}
@@ -1011,11 +995,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 129.86101
       objectReference: {fileID: 0}
-    - target: {fileID: 606809438079372132, guid: 91952070db0d6354e83e308242475eae,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 606809438079372143, guid: 91952070db0d6354e83e308242475eae,
         type: 3}
       propertyPath: m_Controller
@@ -1031,7 +1010,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 606809438079372131, guid: 91952070db0d6354e83e308242475eae, type: 3}
+    - {fileID: 606809438079372132, guid: 91952070db0d6354e83e308242475eae, type: 3}
+    - {fileID: 606809438079372142, guid: 91952070db0d6354e83e308242475eae, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 91952070db0d6354e83e308242475eae, type: 3}
 --- !u!4 &462825697969517086 stripped
 Transform:
