@@ -63,7 +63,6 @@ public class Walkable : MonoBehaviour
             {
                 player.startingWeb = false;
                 player.makingWeb = true;
-                other.gameObject.transform.parent.GetComponent<Rigidbody2D>().gravityScale = 1;
 
                 RaycastHit2D hit = Physics2D.Raycast(other.gameObject.transform.position, -other.gameObject.transform.parent.transform.up, 1000, player.layerMask);
 

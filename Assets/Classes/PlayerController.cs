@@ -75,35 +75,21 @@ public class PlayerController : MonoBehaviour
         if (this.isOnSurface > 1)
         {
             this.isWalking = false;
-            this.movement = new Vector3(0.0f, 0.0f, 0.0f);
+            this.movement = Vector3.zero;
 
             float horiInput = Input.GetAxisRaw("Horizontal");
             float vertInput = Input.GetAxisRaw("Vertical");
 
 
-            if (horiInput < 0)
+            if (!Mathf.Approximately(horiInput, 0))
             {
                 this.movement += new Vector3(horiInput * speed * Time.deltaTime, 0.0f, 0.0f);
-                if(this.isOnSurface != 1)
-                    this.isWalking = true;
+                this.isWalking = true;
             }
-            if (vertInput < 0)
+            if (!Mathf.Approximately(vertInput, 0))
             {
                 this.movement += new Vector3(0.0f, vertInput * speed * Time.deltaTime, 0.0f);
-                if(this.isOnSurface != 1)
-                    this.isWalking = true;
-            }
-            if (horiInput > 0)
-            {
-                this.movement += new Vector3(horiInput * speed * Time.deltaTime, 0.0f, 0.0f);
-                if(this.isOnSurface != 1)
-                    this.isWalking = true;
-            }
-            if (vertInput > 0)
-            {
-                this.movement += new Vector3(0.0f, vertInput * speed * Time.deltaTime, 0.0f);
-                if(this.isOnSurface != 1)
-                    this.isWalking = true;
+                this.isWalking = true;
             }
             if (Input.GetButton("Jump") && canJump)
             {
@@ -135,7 +121,10 @@ public class PlayerController : MonoBehaviour
                 this.animator.SetTrigger("Idle");
             }
 
-            this.gameObject.transform.position += this.movement;
+            if (this.isWalking)
+            {
+                this.gameObject.transform.position += this.movement;
+            }
 
             this.gameObject.transform.up = this.movement;
 
@@ -143,15 +132,6 @@ public class PlayerController : MonoBehaviour
         else
         {
             this.GetComponent<Rigidbody2D>().gravityScale = 1;
-    /*        if (Input.GetKey("a"))
-            {
-                this.gameObject.transform.position += new Vector3(-speed * Time.deltaTime, 0.0f, 0.0f);
-            }
-            if (Input.GetKey("d"))
-            {
-                this.gameObject.transform.position += new Vector3(speed * Time.deltaTime, 0.0f, 0.0f);
-            }
-            */
         }
 
         if (this.makingWeb)
