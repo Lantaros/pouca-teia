@@ -1638,11 +1638,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 606809438079372133, guid: 91952070db0d6354e83e308242475eae,
-        type: 3}
-      propertyPath: m_Name
-      value: Spider
-      objectReference: {fileID: 0}
     - target: {fileID: 606809438079372128, guid: 91952070db0d6354e83e308242475eae,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1698,6 +1693,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 606809438079372133, guid: 91952070db0d6354e83e308242475eae,
+        type: 3}
+      propertyPath: m_Name
+      value: Spider
+      objectReference: {fileID: 0}
     - target: {fileID: 606809438079372132, guid: 91952070db0d6354e83e308242475eae,
         type: 3}
       propertyPath: debugText
@@ -1708,6 +1708,16 @@ PrefabInstance:
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 692375835}
+    - target: {fileID: 606809438421221287, guid: 91952070db0d6354e83e308242475eae,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 606809438484678403, guid: 91952070db0d6354e83e308242475eae,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91952070db0d6354e83e308242475eae, type: 3}
 --- !u!1001 &2542795921609857679
