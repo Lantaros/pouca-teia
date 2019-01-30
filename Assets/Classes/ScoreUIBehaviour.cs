@@ -35,6 +35,7 @@ public class ScoreUIBehaviour : MonoBehaviour
             if (Input.GetButton("Play"))
             {
                 SceneManager.LoadScene(1);
+                Bug.points = 0;
             }
         }
     }
