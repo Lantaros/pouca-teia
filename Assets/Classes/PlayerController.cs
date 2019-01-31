@@ -80,13 +80,24 @@ public class PlayerController : MonoBehaviour
             float horiInput = Input.GetAxisRaw("Horizontal");
             float vertInput = Input.GetAxisRaw("Vertical");
 
+            if (!Mathf.Approximately(horiInput, 0) || !Mathf.Approximately(vertInput, 0))
+            {
+                this.gameObject.transform.up 
+                    = new Vector3(horiInput * speed * Time.deltaTime, 
+                                    vertInput * speed * Time.deltaTime, 
+                                    0.0f);
+            }
 
+            RaycastHit2D hit = Physics2D.Raycast(this.transform.position + this.transform.transform.up, 
+                                                -this.transform.transform.up, 
+                                                5, 
+                                                this.layerMask);
             if (!Mathf.Approximately(horiInput, 0))
             {
                 this.movement += new Vector3(horiInput * speed * Time.deltaTime, 0.0f, 0.0f);
                 this.isWalking = true;
             }
-            if (!Mathf.Approximately(vertInput, 0))
+            if (!Mathf.Approximately(vertInput, 0) && hit.collider != null)
             {
                 this.movement += new Vector3(0.0f, vertInput * speed * Time.deltaTime, 0.0f);
                 this.isWalking = true;
@@ -126,7 +137,7 @@ public class PlayerController : MonoBehaviour
                 this.gameObject.transform.position += this.movement;
             }
 
-            this.gameObject.transform.up = this.movement;
+            /* this.gameObject.transform.up = this.movement; */
 
         }
         else
