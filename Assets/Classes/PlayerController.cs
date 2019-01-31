@@ -88,18 +88,32 @@ public class PlayerController : MonoBehaviour
                                     0.0f);
             }
 
-            RaycastHit2D hit = Physics2D.Raycast(this.transform.position + this.transform.transform.up, 
-                                                -this.transform.transform.up, 
-                                                5, 
+            // I had the bright idea of raycasting three times instead of making a collider
+            // If you stumble on this code, learn from my stupidity and this better
+            // - Miguel
+            RaycastHit2D hit1 = Physics2D.Raycast(this.transform.position + this.transform.up * 0.5f + this.transform.transform.right * 0.1f, 
+                                                this.transform.up, 
+                                                0.5f, 
+                                                this.layerMask);
+            RaycastHit2D hit2 = Physics2D.Raycast(this.transform.position + this.transform.up * 0.5f - this.transform.transform.right * 0.1f, 
+                                                this.transform.up, 
+                                                0.5f, 
+                                                this.layerMask);
+            RaycastHit2D hit3 = Physics2D.Raycast(this.transform.position + this.transform.up * 0.5f, 
+                                                this.transform.up, 
+                                                0.5f, 
                                                 this.layerMask);
             if (!Mathf.Approximately(horiInput, 0))
             {
                 this.movement += new Vector3(horiInput * speed * Time.deltaTime, 0.0f, 0.0f);
                 this.isWalking = true;
             }
-            if (!Mathf.Approximately(vertInput, 0) && hit.collider != null)
+            if (!Mathf.Approximately(vertInput, 0))
             {
-                this.movement += new Vector3(0.0f, vertInput * speed * Time.deltaTime, 0.0f);
+                if ((hit1.collider != null || hit2.collider != null) && vertInput > 0.0f)
+                    this.movement += new Vector3(0.0f, vertInput * speed * Time.deltaTime, 0.0f);
+                else if (vertInput < 0.0f)
+                    this.movement += new Vector3(0.0f, vertInput * speed * Time.deltaTime, 0.0f);
                 this.isWalking = true;
             }
             if (Input.GetButton("Jump") && canJump)
@@ -109,6 +123,7 @@ public class PlayerController : MonoBehaviour
                 this.animator.ResetTrigger("Idle");
                 this.animator.ResetTrigger("Walk");
                 this.animator.SetTrigger("Jump");
+                this.movement += new Vector3(0.0f, vertInput * speed * Time.deltaTime, 0.0f);
                 this.GetComponent<Rigidbody2D>().velocity = this.movement * jump;
                 this.audioSource.PlayOneShot(this.jumpSound);
                 if(!makingWeb)

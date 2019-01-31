@@ -25,7 +25,7 @@ public class Walkable : MonoBehaviour
             player.isOnSurface++;
 
             other.GetComponent<Rigidbody2D>().gravityScale = 0;
-            other.GetComponent<Rigidbody2D>().velocity = new Vector2(0.0f, 0.0f);
+            other.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         }
         else if (other.tag == "WebButt")
         {
