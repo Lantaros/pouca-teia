@@ -19,6 +19,9 @@ public class GameManager : MonoBehaviour
     public GameObject score;
 
     private UnityEngine.UI.Text timeText;
+
+    public Timer timerObj;
+
     private float currentTime;
     private float spawnTime = 0.0f;
     private float spawnTimeTarget = 1.0f;
@@ -30,6 +33,11 @@ public class GameManager : MonoBehaviour
         this.currentTime = this.BuildTime;
     }
 
+    public void startRound(){
+        this.roundStarted = true;
+        this.timerObj.init(this.BuildTime);
+    }
+
     private void Update()
     {
         if(!roundStarted)
@@ -39,7 +47,7 @@ public class GameManager : MonoBehaviour
         
         if (this.mode == "building")
         {
-            this.timeText.text = ((int) this.currentTime).ToString();
+            this.timeText.text = ((int) this.currentTime).ToString();         
         }
         else if (this.mode == "hunting")
         {

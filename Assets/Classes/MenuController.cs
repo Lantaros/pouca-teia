@@ -20,7 +20,7 @@ public class MenuController : MonoBehaviour
 
     public void startRound()
     {
-        gameManager.roundStarted = true;
+        gameManager.startRound();
         currentState = MenuState.NONE;
         GameObject obj =  GameObject.Find("MenuCanvas");
 
